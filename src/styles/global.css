@@ -1,0 +1,169 @@
+/* Dark theme kept close to the old myportfolio look: condensed uppercase type on near-black. */
+:root
+{
+    --bg: #191919;
+    --bg-elevated: #222222;
+    --text: #ffffff;
+    --text-muted: #999999;
+    --accent: #ffffff;
+    --font-display: 'Bebas Neue', 'Oswald', sans-serif;
+    --font-body: 'Oswald', sans-serif;
+    --content-width: 1100px;
+    --gutter: clamp(16px, 4vw, 48px);
+    color-scheme: dark;
+}
+
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    scroll-behavior: smooth;
+}
+
+body
+{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img,
+video
+{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a
+{
+    color: inherit;
+}
+
+h1,
+h2,
+h3
+{
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin: 0;
+}
+
+/* Header */
+
+.site-header
+{
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.4rem var(--gutter);
+}
+
+.site-header nav
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+}
+
+.site-header nav a
+{
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+
+.site-header nav a:hover,
+.site-header nav a.active
+{
+    opacity: 1;
+}
+
+.site-header nav a.active
+{
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+}
+
+/* Footer */
+
+.site-footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem var(--gutter) 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.back-to-top
+{
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Shared */
+
+.container
+{
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+.button
+{
+    display: inline-block;
+    padding: 0.5rem 1.4rem;
+    border-radius: 999px;
+    background: var(--text);
+    color: var(--bg);
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+}
+
+.button:hover
+{
+    transform: translateY(-2px);
+}
+
+.page-title
+{
+    font-size: clamp(2.6rem, 7vw, 4.5rem);
+    text-align: center;
+    padding: 2rem 0 2.5rem;
+}

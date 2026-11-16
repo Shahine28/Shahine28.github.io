@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Socials from '../components/Socials.astro';
+import profile from '../assets/profile.jpg';
+import { SITE } from '../lib/site';
+---
+<Base title="About Me">
+    <section class="container about">
+        <h1 class="page-title">About Me</h1>
+
+        <div class="intro">
+            <Image src={profile} alt="Portrait of Shahine Benthanane" widths={[400, 800]} sizes="(max-width: 800px) 90vw, 360px" class="portrait" />
+            <div>
+                <p>
+                    Hi, I am Shahine Benthanane, a video game development enthusiast and a THIRD-year student at
+                    Institut de l'internet et du multimédia - IIM, where I'm pursuing a Master's degree in video games.
+                    I love diving into the world of game development, especially programming.
+                </p>
+                <p>
+                    Currently looking for an internship in Game Programming for early 2025, I'm motivated to explore
+                    and develop my skills as a Gameplay Programmer. With a background mixing studies and professional
+                    experience, I'm ready to take on new challenges and contribute to the video game industry with
+                    enthusiasm and creativity.
+                </p>
+                <p>Welcome to my portfolio!</p>
+            </div>
+        </div>
+
+        <div class="resume">
+            <h2>My CV :</h2>
+            <a class="button" href={SITE.resume} target="_blank" rel="noopener">Download</a>
+        </div>
+
+        <div class="contact">
+            <p>Don't hesitate to contact me via mobile, email or linkedin!</p>
+            <p>Phone number : +33669946570<br />Email : shahine93300@gmail.com</p>
+            <Socials size={28} />
+        </div>
+    </section>
+</Base>
+
+<style>
+    .about
+    {
+        max-width: 960px;
+    }
+
+    .intro
+    {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 3rem;
+        align-items: center;
+    }
+
+    @media (max-width: 800px)
+    {
+        .intro
+        {
+            grid-template-columns: 1fr;
+            justify-items: center;
+            text-align: center;
+        }
+    }
+
+    .portrait
+    {
+        width: 100%;
+        max-width: 360px;
+        border-radius: 50%;
+    }
+
+    .resume,
+    .contact
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 4rem;
+        text-align: center;
+    }
+
+    .resume h2
+    {
+        font-size: 2.4rem;
+    }
+
+    .contact p
+    {
+        margin: 0;
+    }
+</style>

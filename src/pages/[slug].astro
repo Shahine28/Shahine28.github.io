@@ -1,0 +1,206 @@
+---
+import { Image } from 'astro:assets';
+import { render, type CollectionEntry } from 'astro:content';
+import { marked } from 'marked';
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import itchBadge from '../assets/badges/itch.png';
+import googlePlayBadge from '../assets/badges/googleplay.png';
+import { getSortedProjects } from '../lib/projects';
+
+export async function getStaticPaths()
+{
+    const projects = await getSortedProjects();
+    return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+interface Props
+{
+    project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+const { Content } = await render(project);
+const pitchHtml = marked.parse(data.pitch);
+
+const badges = { itch: itchBadge, googleplay: googlePlayBadge } as const;
+const platformLabels = { itch: 'itch.io', googleplay: 'Google Play', steam: 'Steam', link: 'Play' } as const;
+---
+<Base title={data.title + (data.tagline ? ' - ' + data.tagline : '')} description={data.pitch.slice(0, 160)} image={data.cover.src}>
+    <article class="container project">
+        <header class="project-header">
+            <h1>{data.title}{data.tagline && ' - ' + data.tagline}</h1>
+            <p>{data.year} - {data.duration}</p>
+            <p>{data.tech} - {data.roles}</p>
+            <p>{data.teamSize}</p>
+        </header>
+
+        {data.youtube
+            ? (
+                <div class="video">
+                    <iframe
+                        src={'https://www.youtube-nocookie.com/embed/' + data.youtube}
+                        title={data.title + ' trailer'}
+                        loading="lazy"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            )
+            : <Image class="hero-cover" src={data.cover} alt="" widths={[800, 1280, 1920]} sizes="(max-width: 1100px) 100vw, 1100px" loading="eager" />}
+
+        {data.availableOn.length > 0 && (
+            <section class="available">
+                <h2>Available on :</h2>
+                <ul>
+                    {data.availableOn.map((store) => (
+                        <li>
+                            <a href={store.url} target="_blank" rel="noopener">
+                                {store.platform in badges
+                                    ? <Image src={badges[store.platform as keyof typeof badges]} alt={platformLabels[store.platform]} height={70} />
+                                    : <span class="button">{platformLabels[store.platform]}</span>}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        )}
+
+        <section class="text-block">
+            <h2>Pitch</h2>
+            <div set:html={pitchHtml} />
+        </section>
+
+        <Gallery projectId={project.id} items={data.screenshots} />
+
+        <section class="text-block body">
+            <Content />
+        </section>
+
+        <Gallery projectId={project.id} items={data.features} />
+    </article>
+</Base>
+
+<style>
+    .project
+    {
+        max-width: 1100px;
+    }
+
+    .project-header
+    {
+        text-align: center;
+        padding: 2rem 0 2.5rem;
+    }
+
+    .project-header h1
+    {
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        margin-bottom: 0.8rem;
+    }
+
+    .project-header p
+    {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 1.1rem;
+    }
+
+    .video
+    {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background: #000;
+    }
+
+    .video iframe
+    {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .hero-cover
+    {
+        width: 100%;
+    }
+
+    .available
+    {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem 2.5rem;
+        margin: 3rem 0;
+    }
+
+    .available h2
+    {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+    }
+
+    .available ul
+    {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .available img
+    {
+        width: auto;
+        height: 70px;
+        transition: opacity 0.2s;
+    }
+
+    .available a:hover img
+    {
+        opacity: 0.75;
+    }
+
+    .text-block
+    {
+        max-width: 780px;
+        margin: 3rem auto;
+        text-align: center;
+    }
+
+    .text-block h2,
+    .text-block :global(h2)
+    {
+        font-size: 1.9rem;
+        margin: 2.5rem 0 0.8rem;
+    }
+
+    .text-block :global(p)
+    {
+        margin: 0 0 1rem;
+    }
+
+    /* Team and task lists read better left-aligned, while headings stay centered. */
+    .body :global(ul)
+    {
+        text-align: left;
+        padding-left: 1.2rem;
+        margin: 0;
+    }
+
+    .body :global(li)
+    {
+        margin-bottom: 0.45rem;
+    }
+
+    .body :global(strong)
+    {
+        font-weight: 400;
+        color: var(--text);
+    }
+</style>

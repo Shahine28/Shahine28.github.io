@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { getSortedProjects } from '../lib/projects';
+
+const projects = await getSortedProjects();
+---
+<Base title="Games">
+    <Hero size="short" scrollTarget="projects">
+        <h1>My Games</h1>
+    </Hero>
+
+    <div id="projects" class="projects">
+        <ProjectGrid projects={projects} />
+    </div>
+</Base>
+
+<style>
+    .projects
+    {
+        padding-top: 2rem;
+    }
+</style>
