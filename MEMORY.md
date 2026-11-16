@@ -21,6 +21,13 @@ Notes de session : décisions, choses à savoir, erreurs à ne pas refaire.
 - Purina : la liste Tasks est un copier-coller de celle de Hellcooker sur l'ancien site, à réécrire avec le propriétaire.
 - CV : `public/resume.pdf` vient du design Canva « Shahine Benthanane - CV English 2026 » (id `DAHbEjGMHz0`), copie anglaise du CV bleu français (id `DAHbEgsdX_o`, dossier « Ami de Florent Jin »). Pas de numéro de téléphone (retiré à la demande du propriétaire).
 
+## Publication
+
+- Site en ligne depuis le 16/11/2026 : https://shahine28.github.io (dépôt public `Shahine28/Shahine28.github.io`, Pages en mode GitHub Actions).
+- Sur ce PC, `git push` échoue en HTTPS (« unable to get local issuer certificate »). Pousser avec le magasin de certificats Windows et l'identification gh :
+  `git -c http.sslBackend=schannel -c credential.helper= -c "credential.helper=!'C:/Program Files/GitHub CLI/gh.exe' auth git-credential" push`
+- `gh` n'est pas dans le PATH du shell Bash : ajouter `C:/Program Files/GitHub CLI` au PATH ou appeler `gh.exe` par son chemin.
+
 ## CV Canva : pièges
 
 - Remplacer du texte à cheval sur plusieurs segments (gras, lien) mélange les styles et les liens : toujours remplacer à l'intérieur d'un seul segment.
