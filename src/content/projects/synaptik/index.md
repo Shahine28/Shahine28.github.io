@@ -9,7 +9,7 @@ teamSize: "Team of 8"
 cover: ./cover.png
 order: 120
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "Gcc4yLWwEOQ"
 availableOn:
   - platform: itch
     url: "https://zolaely.itch.io/synaptik"

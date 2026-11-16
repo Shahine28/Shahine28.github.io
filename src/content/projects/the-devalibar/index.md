@@ -9,7 +9,7 @@ teamSize: "Team of 8"
 cover: ./cover.png
 order: 110
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "KOOrf-CVq7s"
 availableOn: []
 pitch: |
   The DEvalibar is a hybrid work at the crossroads of visual novel, narrative management, and social interaction in a fictional, joyful, and subversive bar. The goal is to make choices that influence the accessibility of the venue and the reactions of customers, while conveying a strong message against ableism.

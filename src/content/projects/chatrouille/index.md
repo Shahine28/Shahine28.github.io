@@ -9,7 +9,7 @@ teamSize: "Team of 8"
 cover: ./cover.png
 order: 20
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "TXP2_AUXQ24"
 availableOn:
   - platform: itch
     url: "https://arsenio76.itch.io/chatrouille"

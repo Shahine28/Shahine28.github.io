@@ -9,7 +9,7 @@ teamSize: "Team of 10"
 cover: ./cover.png
 order: 80
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "hjRYiM47XlQ"
 availableOn:
   - platform: itch
     url: "https://logre.itch.io/13-087"

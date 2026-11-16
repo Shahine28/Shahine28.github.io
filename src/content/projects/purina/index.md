@@ -9,7 +9,7 @@ teamSize: "Team of 8"
 cover: ./cover.png
 order: 70
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "sph8q9HyBBo"
 availableOn:
   - platform: itch
     url: "https://kuhakuh.itch.io/purina"

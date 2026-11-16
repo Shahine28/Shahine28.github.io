@@ -10,7 +10,7 @@ cover: ./cover.png
 order: 100
 featured: 3
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "kPseM_dCEV8"
 availableOn:
   - platform: itch
     url: "https://frost-wick.itch.io/hellcooker"

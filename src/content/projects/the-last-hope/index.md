@@ -9,7 +9,7 @@ teamSize: "Alone"
 cover: ./cover.png
 order: 60
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "BbDLJxhWrQg"
 availableOn:
   - platform: itch
     url: "https://shahine28.itch.io/the-last-hope"

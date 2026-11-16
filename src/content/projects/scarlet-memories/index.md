@@ -9,7 +9,7 @@ teamSize: "Team of 9"
 cover: ./cover.png
 order: 90
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "ii97fj4V7zw"
 availableOn:
   - platform: itch
     url: "https://logre.itch.io/scarlet-memories"

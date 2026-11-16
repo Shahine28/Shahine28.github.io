@@ -9,7 +9,7 @@ teamSize: "Alone"
 cover: ./cover.png
 order: 40
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "6-wT2sB24Z8"
 availableOn:
   - platform: itch
     url: "https://shahine28.itch.io/hermes-project"

@@ -9,7 +9,7 @@ teamSize: "Team of 5"
 cover: ./cover.png
 order: 10
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "61wSceW9w6g"
 availableOn:
   - platform: itch
     url: "https://arsenio76.itch.io/the-grid"

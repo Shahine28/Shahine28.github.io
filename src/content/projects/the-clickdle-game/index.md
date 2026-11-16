@@ -9,7 +9,7 @@ teamSize: "Team of 2"
 cover: ./cover.png
 order: 50
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "VSvLdOe3q-s"
 availableOn:
   - platform: itch
     url: "https://shahine28.itch.io/the-clikdle-project"

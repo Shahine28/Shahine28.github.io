@@ -9,7 +9,7 @@ teamSize: "Team of 4"
 cover: ./cover.png
 order: 30
 # YouTube video id (the part after watch?v=). Empty = no trailer shown.
-youtube: ""
+youtube: "PCkiEgS52_Q"
 availableOn:
   - platform: itch
     url: "https://jaribou.itch.io/2042"
