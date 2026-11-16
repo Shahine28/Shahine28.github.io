@@ -38,9 +38,7 @@ This game was developed in 3 days during the Godfather, a game jam bringing toge
 
 ## Tasks
 
-- Integration of ingredient cards
-- User interface integration
-- Immersion enhancement (particles, camera vibrations, sound effects, etc.)
-- Implementation of touch controls
-- Programming of monster behavior
-- Development of the dish system
+- **Enemies**: spawn manager, enemy behavior and their UI
+- **Bonuses and maluses**: full system, from the general's decision to its in-game activation
+- **Inputs**: gamepad controls for the player, keyboard controls for the general (the real-life Game Master)
+- **Player**: every mechanic of the player character
