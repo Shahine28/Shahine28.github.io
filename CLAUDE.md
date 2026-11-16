@@ -22,7 +22,7 @@ The owner sends raw media and French notes. Claude does all the layout work: wri
   - `cover.*` and `media/` sit next to `index.md`. Images go through Astro's optimizer (WebP, responsive widths). Looping videos (`.mp4`) are resolved by `src/lib/media.ts`.
 - `src/pages/`: `index.astro` (Home, featured projects), `games.astro` (all projects), `about.astro`, `[slug].astro` (project page).
 - `src/lib/site.ts`: name, role, social links. Change identity here only.
-- `public/resume.pdf`: the CV linked from Home and About.
+- `public/resume.pdf`: the CV linked from Home and About. `src/assets/resume-preview.png` is its image version shown large on About: replace both together when the CV changes.
 - `_inbox/`: drop zone for new project material. Git-ignored, never published.
 
 ## Content rules
