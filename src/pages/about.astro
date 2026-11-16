@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Socials from '../components/Socials.astro';
 import profile from '../assets/profile.jpg';
+// Image version of public/resume.pdf. Replace both together when the CV changes.
+import resumePreview from '../assets/resume-preview.png';
 import { SITE } from '../lib/site';
 ---
 <Base title="About Me">
@@ -13,15 +15,23 @@ import { SITE } from '../lib/site';
             <Image src={profile} alt="Portrait of Shahine Benthanane" widths={[400, 800]} sizes="(max-width: 800px) 90vw, 360px" class="portrait" />
             <div>
                 <p>
-                    Hi, I am Shahine Benthanane, a video game development enthusiast and a THIRD-year student at
-                    Institut de l'internet et du multimédia - IIM, where I'm pursuing a Master's degree in video games.
-                    I love diving into the world of game development, especially programming.
+                    Hi, I'm Shahine Benthanane, a Gameplay Programmer in the final year of a Master's degree in
+                    Game Programming at IIM - Institut de l'Internet et du Multimédia (Paris). Since September 2026,
+                    I've been working as a Gameplay Programmer Assistant at <strong>Ketchapp (Ubisoft)</strong> as part
+                    of a work-study program.
                 </p>
                 <p>
-                    Currently looking for an internship in Game Programming for early 2025, I'm motivated to explore
-                    and develop my skills as a Gameplay Programmer. With a background mixing studies and professional
-                    experience, I'm ready to take on new challenges and contribute to the video game industry with
-                    enthusiasm and creativity.
+                    I love building gameplay mechanics and AI, and turning a few lines of code into fun experiences.
+                    Across team projects on <strong>Unity</strong> and <strong>Unreal Engine 5</strong>, I've focused on
+                    clean, modular architecture, tools that make designers' lives easier, and game feel. In 2026, I had
+                    the chance to present <em>Synaptik</em>, an alternative controller game,
+                    at the <strong>GDC</strong> in San Francisco. I'm now exploring <strong>Godot</strong> through my Master's final project, currently a
+                    work in progress.
+                </p>
+                <p>
+                    My Master's ends in early July 2027 and my work-study contract at the end of August 2027.
+                    I'm looking for a <strong>full-time Gameplay Programmer position (CDI) starting September 2027</strong>,
+                    in Paris and the Île-de-France region, or remote.
                 </p>
                 <p>Welcome to my portfolio!</p>
             </div>
@@ -29,12 +39,15 @@ import { SITE } from '../lib/site';
 
         <div class="resume">
             <h2>My CV :</h2>
-            <a class="button" href={SITE.resume} target="_blank" rel="noopener">Download</a>
+            <a class="resume-preview" href={SITE.resume} target="_blank" rel="noopener" aria-label="Open my CV (PDF)">
+                <Image src={resumePreview} alt="Preview of my CV" widths={[600, 900, 1400]} sizes="(max-width: 900px) 100vw, 900px" />
+            </a>
+            <a class="button" href={SITE.resume} download>Download</a>
         </div>
 
         <div class="contact">
-            <p>Don't hesitate to contact me via mobile, email or linkedin!</p>
-            <p>Phone number : +33669946570<br />Email : shahine93300@gmail.com</p>
+            <p>Don't hesitate to contact me by email or on LinkedIn!</p>
+            <p><a href={'mailto:' + SITE.email}>{SITE.email}</a></p>
             <Socials size={28} />
         </div>
     </section>
@@ -64,6 +77,18 @@ import { SITE } from '../lib/site';
         }
     }
 
+    /* Oswald is only loaded in 300 and 400, so emphasis uses the regular weight instead of a faked bold. */
+    .intro strong
+    {
+        font-weight: 400;
+        color: var(--text);
+    }
+
+    .contact a
+    {
+        text-underline-offset: 0.25em;
+    }
+
     .portrait
     {
         width: 100%;
@@ -85,6 +110,25 @@ import { SITE } from '../lib/site';
     .resume h2
     {
         font-size: 2.4rem;
+    }
+
+    .resume-preview
+    {
+        display: block;
+        width: 100%;
+        max-width: 900px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+    }
+
+    .resume-preview:hover
+    {
+        transform: translateY(-4px);
+    }
+
+    .resume-preview img
+    {
+        width: 100%;
     }
 
     .contact p
