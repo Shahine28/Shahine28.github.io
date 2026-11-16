@@ -110,25 +110,10 @@ h3
 
 .site-footer
 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 3rem var(--gutter) 2rem;
     color: var(--text-muted);
     font-size: 0.85rem;
-}
-
-.back-to-top
-{
-    display: grid;
-    place-items: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--bg-elevated);
-    color: var(--text);
-    text-decoration: none;
-    font-size: 1.2rem;
+    text-align: center;
 }
 
 /* Shared */
